@@ -1,0 +1,22 @@
+services:
+  notify:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/daniilren/lawsuit-parser-notifier:latest
+    container_name: company_parser_notify
+    env_file:
+      - .env
+    environment:
+      - PARSER_API_URL=http://company_parser_api:5050
+      - SUBSCRIBERS_FILE=/data/subscribers.json
+    volumes:
+      - ./data:/data
+      - ./logs:/app/logs
+    networks:
+      - parser-net
+    restart: unless-stopped
+
+networks:
+  parser-net:
+    external: true

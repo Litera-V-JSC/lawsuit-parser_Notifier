@@ -1,0 +1,19 @@
+{
+  "smtp": {
+    "host": "smtp.example.com",
+    "port": 465,
+    "username": "",
+    "password": "",
+    "use_ssl": true,
+    "from_address": "notifier@example.com",
+    "from_name": "Company Parser"
+  },
+  "subscribers": [
+    {
+      "email": "admin@example.com",
+      "schedule": "weekly",
+      "watches": ["7807234722"],
+      "notify_on_no_change": false
+    }
+  ]
+}
